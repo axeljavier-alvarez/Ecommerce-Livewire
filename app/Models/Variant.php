@@ -9,8 +9,18 @@ class Variant extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'sku',
+        'image_path',
+        'product_id'
+    ];
+
     public function product(){
         return $this->belongsTo(Product::class);
     }
-    // 4:01
+    // relacion mucho a muchos
+    public function features() {
+        return $this->belongsToMany(Feature::class)
+        ->withTimestamps();
+    }
 }

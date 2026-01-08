@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'family_id'
+    ];
+
     // relacion uno a muchos inversa
     public function family(){
         return $this->belongsTo(Family::class);
