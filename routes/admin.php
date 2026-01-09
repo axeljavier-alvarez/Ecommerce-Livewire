@@ -11,8 +11,8 @@ Route::get('/user', function (Request $request){
 
 
 Route::get('/', function(){
-    // return view('admin.dashboard');
-    return 'Hola desde el administrador';
+     return view('admin.dashboard');
+    // return 'Hola desde el administrador';
 })->name('dashboard');
 
 //
