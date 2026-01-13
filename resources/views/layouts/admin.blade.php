@@ -11,13 +11,40 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+         <!-- Font awesome -->
+        <script src="https://kit.fontawesome.com/e2d71e4ca2.js" crossorigin="anonymous"></script>
+        
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased"
+    x-data="{
+    sidebarOpen: false,
+    }"
+    :class="{
+        'overflow-y-hidden': sidebarOpen
+    }"
+    >
+
+
+    <div
+        class="fixed inset-0 bg-gray-900 bg-opacity-50 z-20 sm:hidden"
+        style="display: none;"
+        x-show="sidebarOpen"
+
+        x-on:click="sidebarOpen = false">
+        </div>
+
+        {{-- hacer click afuera y se cierra
+        x-on:click="sidebarOpen = false"> --}}
+{{--
+        quitar barra
+        :class="{
+        'overflow-y-hidden': sidebarOpen
+    }" --}}
 
         <!-- incluyendo los blade de navigation y sidebar -->
         @include('layouts.partials.admin.navigation')
