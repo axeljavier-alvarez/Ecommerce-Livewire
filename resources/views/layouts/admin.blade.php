@@ -1,3 +1,5 @@
+
+@props(['breadcrumbs' => []])
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -13,7 +15,7 @@
 
          <!-- Font awesome -->
         <script src="https://kit.fontawesome.com/e2d71e4ca2.js" crossorigin="anonymous"></script>
-        
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -55,10 +57,18 @@
 
 
             <div class="p-4 sm:ml-64 mt-14">
-            <div class="p-4 border-2 border-default border-dashed rounded-base">
-                {{ $slot }}
 
-            </div>
+
+                <div class="mt-5">
+                    @include('layouts.partials.admin.breadcrumb')
+                    <div class="p-4 border-2 border-default border-dashed rounded-base">
+
+                        {{ $slot }}
+
+                    </div>
+
+                </div>
+
             </div>
 
 
